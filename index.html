@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Function scope example</title>
+</head>
+<body>
+
+  <script>
+//create function named "computerPlay"
+function computerPlay() {
+//function generates a number from one to three
+    randomNumber = Math.floor(Math.random()*3) + 1;
+//function returns "rock" on a 1
+if (randomNumber === 1) {
+        return "rock";
+//function returns "paper" on a 2
+    } else if (randomNumber === 2) {
+        return "paper";
+//function returns "scissors" on a 3
+    } else if (randomNumber === 3) {
+        return "scissors";
+//function returns WTF for any other result
+    } else return "that's not one of the three options silly";
+}
+
+//create function named "playRound" that takes two arguments - computerSelection and playerSelection
+function playRound() {
+  //create variable for playerSelection using Prompt that turns input into lowercase strings
+let playerInput = prompt("Rock, Paper, Scissors!")
+let playerSelection = playerInput.toLowerCase();
+let computerSelection = computerPlay()
+//run computerPlay function
+  computerPlay();
+  //if/else statement
+    //if playerSelection and computerSelection are the same, return a tie
+    if (playerSelection === computerSelection) {
+      console.log("It's a tie!");
+      return "tie";
+//if rock and scissors, return win (rock)
+    } else if (playerSelection === "rock" && computerSelection === "scissors") {
+      console.log("You win! Rock beats scissors.");
+      return "win";
+//if scissors and rock, return lose (rock)
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
+      console.log("You lose! Rock beats scissors.");
+      return "lose";
+//if scissors and paper, return win (scissors)
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+      console.log("You win! Scissors beat paper.");
+      return "win";
+//if paper and scissors, return lose (scissors)
+    } else if (playerSelection === "paper" && computerSelection === "scissors"){
+      console.log("You lose! Scissors beat paper.");
+      return "lose";
+//if paper and rock, return win(paper)
+    } else if (playerSelection === "paper" && computerSelection === "rock") {
+      console.log("You win! Paper beats rock.");
+      return "win";
+//if rock and paper, return lose (paper)
+    } else if (playerSelection === "rock" && computerSelection === "paper") {
+      console.log("You lose! Paper beats rock.")
+      return "lose";
+//else return error message
+    } else console.log ("That's not one of the three options, silly. Let's pretend it was a tie.");
+  }
+
+function game() {
+  let win = 0;
+  let lose = 0;
+  for (i = 0; i < 5; i++) {
+    let winOrLose = playRound();
+    if (winOrLose == "win") {
+      win++;
+      console.log(`Current Score: ${ win } to ${ lose }`);
+    } else if (winOrLose == "lose") {
+      lose++;
+      console.log(`Current Score: ${ win } to ${ lose }`);
+    } else console.log(`Current Score: ${ win } to ${ lose }`);
+  }
+  console.log(`Final Score: ${ win } to ${ lose }`);
+  }
+
+game();
+  </script>
+</body>
+</html>
