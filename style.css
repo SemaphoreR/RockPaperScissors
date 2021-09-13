@@ -1,0 +1,26 @@
+body {
+    margin: 0px;
+}
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+}
+
+#letsPlay {
+    margin-bottom: 0;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#resultList li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
